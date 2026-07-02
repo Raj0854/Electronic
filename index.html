@@ -18,7 +18,7 @@
 
 <body>
     <header>
-        <div class="bg_picture">
+        <div class="hero" id="home">
             <div class="header">
                 <div class="navbar container">
                     <div class="logo">
@@ -54,8 +54,7 @@
                     </span>
                 </div>
             </div>
-            <div class="middle_section container
-        ">
+            <div class="middle_section container ">
                 <div class="hero-content">
                     <h1>Future of Technology</h1>
                     <p>
@@ -73,15 +72,146 @@
                             Explore More
                         </a>
                     </div>
+                    <section class="stats container">
+                        <div class="stat">
+                            <h2>50K+</h2>
+                            <p>Happy Customers</p>
+                        </div>
+
+                        <div class="stat">
+                            <h2>10K+</h2>
+                            <p>Products Sold</p>
+                        </div>
+
+                        <div class="stat">
+                            <h2>99%</h2>
+                            <p>Customer Satisfaction</p>
+                        </div>
+
+                    </section>
                 </div>
             </div>
         </div>
     </header>
     <main>
-        <div class="hero">
-            9
-        </div>
+        <section class="Products" id="products">
+            <div class="product_section">
+                <div class="product_title">
+                    Featured Products
+                </div>
+                <div class="controls">
+
+                    <input type="text" id="search" placeholder="Search products...">
+
+                    <div class="filters">
+
+                        <button class="filter-btn active" data-category="All">
+                            All
+                        </button>
+
+                        <button class="filter-btn" data-category="Smartphones">
+                            Smartphones
+                        </button>
+
+                        <button class="filter-btn" data-category="Laptops">
+                            Laptops
+                        </button>
+
+                        <button class="filter-btn" data-category="Audio">
+                            Audio
+                        </button>
+
+                        <button class="filter-btn" data-category="Gaming">
+                            Gaming
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- categories -->
+        <section id="categories" class="categories">
+            <h2>Shop By Category</h2>
+
+            <div class="category-grid">
+                <div class="category">📱 Smartphones</div>
+                <div class="category">💻 Laptops</div>
+                <div class="category">🎧 Headphones</div>
+                <div class="category">⌚ Smart Watches</div>
+            </div>
+        </section>
+        <!-- why to choose E-tech -->
+        <section id="whyUs" class="whyUs">
+            <h2>Why Us?</h2>
+            <div class="reason-grid">
+                <div class="reason">
+                    <div class="benefit-card">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <h3>Fast Delivery</h3>
+                        <p>Nationwide shipping.</p>
+                    </div>
+                </div>
+                <div class="reason">
+                    <div class="benefit-card">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h3>Warranty</h3>
+                        <p>Trusted protection.</p>
+                    </div>
+                </div>
+                <div class="reason">
+                    <div class="benefit-card">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <h3>Secure Payments</h3>
+                        <p>100% encrypted checkout.</p>
+                    </div>
+                </div>
+                <div class="reason">
+                    <div class="benefit-card">
+                        <i class="fa-solid fa-headset"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Always available.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </main>
+    <footer>
+        <section id="contactUs" class="contactUs container">
+            <h2>Get Our Exclusive Deals</h2>
+            <p>Subscribe and receive the latest launches, offers and updates. </p>
+            <div class="input_section">
+                <input type="email" placeholder="Enter your email">
+                <button> Get now!</button>
+            </div>
+        </section>
+        <div class="footer">
+            <div class="container footer-content">
+
+                <div>
+                    <h3>E-Tech</h3>
+                    <p>Future Technology, Today.</p>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="#">Home</a>
+                    <a href="#">Products</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <div>
+                    <h4>Follow Us</h4>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
