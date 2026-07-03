@@ -43,7 +43,9 @@
                             <i class="fa-solid fa-cart-shopping"></i>
                             <span id="cart-count">0</span>
                         </button>
-
+                        <button id="menu-btn" class="menu-btn">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -128,7 +130,9 @@
                     </div>
 
                 </div>
-
+                <div class="product_item" id="product-grid">
+                    <!-- product cards injected by products.js -->
+                </div>
             </div>
         </section>
         <!-- categories -->
@@ -212,6 +216,24 @@
             </div>
         </div>
     </footer>
+    <aside id="cart-drawer">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <h3>Total:
+                ₹ <span id="cart-total">0</span>
+            </h3>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </aside>
+    <div id="overlay"></div>
+    <script src="srcipt.js"></script>
+    <script src="products.js"></script>
 </body>
 
 </html>
