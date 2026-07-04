@@ -342,9 +342,9 @@ body::after {
 /* categories */
 .categories,
 .whyUs {
-    max-width: 1200px;
-    margin: 80px;
-    padding: 100px 20px;
+    max-width: 1200px, 100%;
+    margin: 0px 80px 0px 80px;
+    padding: 80px 20px;
 }
 
 
@@ -357,7 +357,7 @@ body::after {
 .reason-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    gap: 80px;
 }
 
 .category {
@@ -566,6 +566,11 @@ body::after {
 
 /* mobile */
 @media(max-width:768px) {
+    .hero {
+        height: 140vh;
+    }
+
+    
     .navbar {
         width: 94%;
         padding: 12px 18px;
@@ -575,6 +580,10 @@ body::after {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .middle_section {
+        padding-top: 0;
     }
 
     .nav-links {
@@ -609,7 +618,116 @@ body::after {
     }
 
     .hero-tag {
-        margin-top: 0px;
+        margin-top: 0;
         margin-left: 0;
+    }
+
+    .hero-content {
+        padding: 0 10px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        text-align: center;
+
+    }
+
+    .stats {
+        /* flex-direction: column; */
+        align-items: stretch;
+        margin-top: 50px;
+
+    }
+
+    .stat {
+        max-width: 100%;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .filters {
+        justify-content: center;
+    }
+
+    .product_title {
+        font-size: 1.3rem;
+    }
+
+    #categories {
+        margin: 0 80px 0 80px;
+        padding: 0;
+
+    }
+
+    #whyUs {
+
+        margin: 40px 80px 0 80px;
+        padding: 0;
+    }
+
+    #cart-drawer {
+        width: 100%;
+        right: -100%;
+
+    }
+
+    .footer-content {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .footer-content>div {
+        width: 100%;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .container {
+        width: 94%;
+    }
+
+    .middle_section {
+        padding-top: 100px;
+    }
+
+    .middle_section h1 {
+        font-size: 1.9rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .theme-btn,
+    .cart-btn,
+    .menu-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .filter-btn {
+        padding: 10px 14px;
+        font-size: .85rem;
+    }
+
+    .input_section input {
+        width: 100%;
+    }
+
+    .input_section button {
+        width: 100%;
+    }
+
+    .benefit-card,
+    .category {
+        padding: 22px;
     }
 }
