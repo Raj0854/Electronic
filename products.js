@@ -1,4 +1,4 @@
-const products = [
+const productsItems = [
     {
         id: 1,
         name: "E-Tech Ultra X",
@@ -26,14 +26,14 @@ const products = [
             "https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
     },
 
-    {
-        id: 4,
-        name: "E-Tech Creator Pro",
-        category: "Laptops",
-        price: 149999,
-        image:
-            "https://images.unsplash.com/photo-1517336714739-489689fd1ca8"
-    },
+    // {
+    //     id: 4,
+    //     name: "E-Tech Creator Pro",
+    //     category: "Laptops",
+    //     price: 149999,
+    //     image:
+    //         "https://images.unsplash.com/photo-1517336714739-489689fd1ca8"
+    // },
 
     {
         id: 5,
@@ -53,14 +53,14 @@ const products = [
             "https://images.unsplash.com/photo-1484704849700-f032a568e944"
     },
 
-    {
-        id: 7,
-        name: "E-Tech Gaming Beast",
-        category: "Gaming",
-        price: 169999,
-        image:
-            "https://images.unsplash.com/photo-1593640408182-31c228c5d1b4"
-    },
+    // {
+    //     id: 7,
+    //     name: "E-Tech Gaming Beast",
+    //     category: "Gaming",
+    //     price: 169999,
+    //     image:
+    //         "https://images.unsplash.com/photo-1593640408182-31c228c5d1b4"
+    // },
 
     {
         id: 8,
@@ -127,14 +127,6 @@ const products = [
 
     {
         id: 15,
-        name: "E-Tech Power Bank",
-        category: "Accessories",
-        price: 2499,
-        image:
-            "https://images.unsplash.com/photo-1585336261022-680e295ce3fe"
-    },
-    {
-        id: 16,
         name: "E-Tech Power Bank",
         category: "Accessories",
         price: 2499,
