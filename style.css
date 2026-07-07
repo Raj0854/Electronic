@@ -716,11 +716,11 @@ body::after {
         border: 1px solid var(--border);
         border-radius: 16px;
         overflow: hidden;
-        max-width: 0;
         transition: max-height .35s ease;
     }
 
     .nav-links.open {
+        max-width: 0;
         max-height: 300px;
     }
 
@@ -849,8 +849,5 @@ body::after {
         padding: 22px;
     }
 
-    .nav-links .open {
-        max-height: 300px;
-    }
-
+    
 }
