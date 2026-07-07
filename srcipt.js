@@ -1,5 +1,24 @@
-// Theme changes
+
+
 const themeBtn = document.querySelector("#theme-toggle")
+const productGrid = document.getElementById("product-grid")
+const searchInput = document.getElementById('search');
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+const cartBtn = document.getElementById("cart-btn");
+const closeCart = document.getElementById("close-cart");
+const cartDrawer = document.getElementById("cart-drawer");
+const overlay = document.getElementById("overlay");
+
+const cartItemsContainer = document.getElementById("cart-items");
+const cartCount = document.getElementById("cart-count");
+const cartTotal = document.getElementById("cart-total");
+
+let currentCategory = "All";
+
+let cart =  [];
+
+// Theme changes
 // save one theme
 const savedTheme = localStorage.getItem("theme")
 if (savedTheme === "light") {
@@ -23,14 +42,7 @@ themeBtn.addEventListener("click", () => {
 });
 
 // ======================================
-const cartBtn = document.getElementById("cart-btn");
-const closeCart = document.getElementById("close-cart");
-const cartDrawer = document.getElementById("cart-drawer");
-const overlay = document.getElementById("overlay");
 
-const cartItemsContainer = document.getElementById("cart-items");
-const cartCount = document.getElementById("cart-count");
-const cartTotal = document.getElementById("cart-total");
 // ======================================
 // cart-drawer
 // ======================================
@@ -48,7 +60,6 @@ function closeDrawer() {
 // ======================================
 // ADDING PRODUCTS
 // ======================================
-const productGrid = document.getElementById("product-grid")
 
 function renderProducts(productList) {
     productGrid.innerHTML = "";
@@ -79,12 +90,10 @@ renderProducts(productsItems);
 // ==========================
 // SEARCH
 // ==========================
-const searchInput = document.getElementById('search');
 searchInput.addEventListener('input', filterProducts)
 // ==========================
 // category filterProducts
 // ==========================
-const filterButtons = document.querySelectorAll(".filter-btn");
 
 filterButtons.forEach(button => {
     button.addEventListener("click", () => {
@@ -115,7 +124,7 @@ function filterProducts() {
 
 function addToCart(id) {
     const product =
-        products.find(item => item.id === id);
+        productsItems.find(item => item.id === id);
     const existing =
         cart.find(item => item.id === id);
     if (existing) {
@@ -154,11 +163,6 @@ function saveCart() {
 // ======================================
 // UPDATE CART UI
 // ======================================
-
-let currentCategory = "All";
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
 function updateCartUI() {
     cartItemsContainer.innerHTML = "";
     let total = 0;
@@ -196,18 +200,14 @@ updateCartUI();
 
 // ======================================
 // CHECKOUT
-function checkout(total) {
-    if (total === "") {
-        alert("Cart is empty.")
-    }
-    else {
-        alert("Your cannot be placed it is demo site.")
-        cartItemsContainer.innerHTML = "";
-        cartTotal.textContent = "0"
-    }
+function checkout() {
+
+    alert("Your cannot be placed it is demo site.")
+    cartItemsContainer.innerHTML = "";
+    cartTotal.textContent = "0";
+    cartCount.textContent = "0";
+
 }
-
-
 
 // ======================================
 const reveals = document.querySelectorAll(".reveal");
@@ -236,4 +236,12 @@ if (menuBtn && navLinks) {
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
+}
+
+
+
+
+
+function contactform(){
+    alert("Thanks for contacting. We will get in touch soon!")
 }
