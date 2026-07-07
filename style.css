@@ -118,6 +118,7 @@ body::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1500;
 }
 
 .logo {
@@ -607,6 +608,42 @@ body::after {
     opacity: 1;
     visibility: visible;
 }
+.cart-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.cart-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    font-size: .95rem;
+}
+
+.cart-item-info p {
+    color: var(--primary);
+    margin-top: 5px;
+}
+
+.remove-btn {
+    border: none;
+    background: #ef4444;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 
 .reveal {
     opacity: 0;
