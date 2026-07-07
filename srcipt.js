@@ -26,9 +26,31 @@ themeBtn.addEventListener("click", () => {
 
 // ======================================
 // MENU FOR PHONE
-// const menuBtn = document.getElementById("menu-btn")
+// Add this to your srcipt.js (or keep as a separate <script> include)
+const menuBtn = document.getElementById('menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+}
 
 // ======================================
+const reveals =document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+    reveals.forEach(item=>{
+        const top = item.getBoundingClientRect().top;
+        if(top< window.innerHeight - 100){
+            item.classList.add("active")
+        }
+    });
+});
 // ======================================
 // ======================================
 const cartBtn = document.getElementById("cart-btn");
@@ -83,6 +105,37 @@ function renderProducts(productList) {
         productGrid.appendChild(card)
     });
 };
-renderProducts(productsItems)
+renderProducts(productsItems);
 
-// 
+// ==========================
+// SEARCH
+// ==========================
+const searchInput = document.getElementById('search');
+searchInput.addEventListener('input', filterProducts)
+// ==========================
+// category filterProducts
+// ==========================
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        filterButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+        button.classList.add("active");
+        currentCategory = button.dataset.category;
+        filterProducts();
+    })
+});
+
+function filterProducts() {
+    const searchText = searchInput.value.toLowerCase();
+    const filtered = productsItems.filter(product => {
+        
+        const matchCategory = currentCategory === "All" || product.category === currentCategory;
+        const matchSearch = product.name.toLowerCase().includes(searchText);
+        return matchCategory && matchSearch;
+
+    });
+    renderProducts(filtered);
+}
