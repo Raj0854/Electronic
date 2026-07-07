@@ -22,36 +22,6 @@ themeBtn.addEventListener("click", () => {
 
 });
 
-
-
-// ======================================
-// MENU FOR PHONE
-// Add this to your srcipt.js (or keep as a separate <script> include)
-const menuBtn = document.getElementById('menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-if (menuBtn && navLinks) {
-    menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
-}
-
-// ======================================
-const reveals =document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-    reveals.forEach(item=>{
-        const top = item.getBoundingClientRect().top;
-        if(top< window.innerHeight - 100){
-            item.classList.add("active")
-        }
-    });
-});
-// ======================================
 // ======================================
 const cartBtn = document.getElementById("cart-btn");
 const closeCart = document.getElementById("close-cart");
@@ -61,7 +31,6 @@ const overlay = document.getElementById("overlay");
 const cartItemsContainer = document.getElementById("cart-items");
 const cartCount = document.getElementById("cart-count");
 const cartTotal = document.getElementById("cart-total");
-// ======================================
 // ======================================
 // cart-drawer
 // ======================================
@@ -131,11 +100,140 @@ filterButtons.forEach(button => {
 function filterProducts() {
     const searchText = searchInput.value.toLowerCase();
     const filtered = productsItems.filter(product => {
-        
+
         const matchCategory = currentCategory === "All" || product.category === currentCategory;
         const matchSearch = product.name.toLowerCase().includes(searchText);
         return matchCategory && matchSearch;
 
     });
     renderProducts(filtered);
+};
+
+// ======================================
+// Add to cart
+// ======================================
+
+function addToCart(id) {
+    const product =
+        products.find(item => item.id === id);
+    const existing =
+        cart.find(item => item.id === id);
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            ...product,
+            quantity: 1
+        });
+    }
+    saveCart();
+    updateCartUI();
+
+
+};
+// ======================================
+// remove cart item
+// ======================================
+
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    saveCart();
+    updateCartUI();
+}
+// ======================================
+// save cart
+// ======================================
+
+function saveCart() {
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+};
+
+// ======================================
+// UPDATE CART UI
+// ======================================
+
+let currentCategory = "All";
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function updateCartUI() {
+    cartItemsContainer.innerHTML = "";
+    let total = 0;
+    let count = 0;
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+        const div = document.createElement("div");
+        div.classList.add("cart-item");
+        div.innerHTML = `
+        <img src="${item.image}" alt="${item.name}'>
+        <div class="cart-item-info">
+            <h4>${item.name}</h4>
+            <p>
+                ₹${item.price.toLocaleString()}
+                x ${item.quantity}
+            </p>
+        </div>
+        <button
+            class="remove-btn"
+            onclick="removeFromCart(${item.id})">
+            Remove
+        </button>   
+        `;
+        cartItemsContainer.appendChild(div);
+
+    });
+    cartCount.textContent = count;
+    cartTotal.textContent = total.toLocaleString();
+}
+updateCartUI();
+
+
+
+
+// ======================================
+// CHECKOUT
+function checkout(total) {
+    if (total === "") {
+        alert("Cart is empty.")
+    }
+    else {
+        alert("Your cannot be placed it is demo site.")
+        cartItemsContainer.innerHTML = "";
+        cartTotal.textContent = "0"
+    }
+}
+
+
+
+// ======================================
+const reveals = document.querySelectorAll(".reveal");
+window.addEventListener("scroll", () => {
+    reveals.forEach(item => {
+        const top = item.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            item.classList.add("active")
+        }
+    });
+});
+
+
+// ======================================
+// MENU FOR PHONE
+// Add this to your srcipt.js (or keep as a separate <script> include)
+const menuBtn = document.getElementById('menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
 }
