@@ -227,14 +227,15 @@ window.addEventListener("scroll", () => {
 const menuBtn = document.getElementById('menu-btn');
 const navLinks = document.querySelector('.nav-links');
 
-if (menuBtn && navLinks) {
+if (menuBtn ) {
     menuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('open');
 
-    });
-
+    });}
+if(navLinks){
     navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => navLinks.classList.remove('open'));
+        link.addEventListener('click', () => navLinks.classList.toggle('open'));
+        
     });
 }
 
