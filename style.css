@@ -402,9 +402,11 @@ body::after {
     color: #000;
 
 }
-.add-cart:hover{
+
+.add-cart:hover {
     background-color: #07abd84d;
 }
+
 /* categories */
 .categories,
 .whyUs {
@@ -606,6 +608,17 @@ body::after {
     visibility: visible;
 }
 
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .8s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ================================== */
 /* tablets */
 /* ================================== */
@@ -798,4 +811,9 @@ body::after {
     .category {
         padding: 22px;
     }
+
+    .nav-links .open {
+        max-height: 300px;
+    }
+
 }
